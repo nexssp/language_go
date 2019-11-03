@@ -8,6 +8,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"runtime"
 )
 
 func main() {
@@ -20,7 +21,7 @@ func main() {
 			panic(err)
 		}
 
-		res["test"] = "test"
+		res["HelloFromGo"] = runtime.Version()
 		NexssStdout, _ := json.Marshal(res)
 		fmt.Println(string(NexssStdout))
 	}
