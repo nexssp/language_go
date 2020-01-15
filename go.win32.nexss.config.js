@@ -11,7 +11,6 @@ languageConfig.builders = {};
 languageConfig.compilers = {
   go: {
     install: "scoop install go",
-    // Cpp does not have possibility to compile and run on the fly. We need to save it as a exe file first.
     command: "go",
     args: "run <file>",
     help: ``
