@@ -6,6 +6,9 @@ languageConfig.title = "Go";
 languageConfig.description =
   "Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.";
 languageConfig.url = "https://golang.org/";
+languageConfig.founders = ["Robert Griesemer", "Rob Pike", "Ken Thompson"];
+languageConfig.developers = ["Google"];
+languageConfig.years = ["2009"];
 languageConfig.extensions = [".go"];
 languageConfig.builders = {};
 languageConfig.compilers = {
