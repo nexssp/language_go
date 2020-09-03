@@ -1,7 +1,10 @@
 const path = require("path");
 process.env.GOPATH = path.resolve("../../../src");
 // console.log("gopath:", process.env.GOPATH);
-let languageConfig = Object.assign({}, require("../config.win32"));
+let languageConfig = Object.assign(
+  {},
+  require(`../config.${process.platform}`)
+);
 languageConfig.title = "Go";
 languageConfig.description =
   "Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.";
@@ -16,8 +19,8 @@ languageConfig.compilers = {
     install: "scoop install go",
     command: "go",
     args: "run <file>",
-    help: ``
-  }
+    help: ``,
+  },
 };
 languageConfig.errors = require("./nexss.go.errors");
 languageConfig.languagePackageManagers = {
@@ -44,8 +47,8 @@ languageConfig.languagePackageManagers = {
     },
     // if command not found in specification
     // run directly on package manager
-    else: "dep <default> <args>"
-  }
+    else: "dep <default> <args>",
+  },
 };
 
 module.exports = languageConfig;
