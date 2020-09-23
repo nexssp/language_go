@@ -23,7 +23,7 @@ languageConfig.dist = distName;
 // TODO: Later to cleanup this config file !!
 switch (distName) {
   case "Alpine Linux":
-    languageConfig.compilers.go.install = `${sudo}apk add --update -y --no-cache vim git make musl-dev go curl`;
+    languageConfig.compilers.go.install = `${sudo}apk add --update -y --no-cache git make musl-dev go curl`;
     break;
   case "Arch Linux":
     languageConfig.compilers.go.install = `${sudo}pacman -Sy --noconfirm go`;
