@@ -27,10 +27,10 @@ languageConfig.languagePackageManagers = {
   npm: {
     installation: "scoop install go",
     messageAfterInstallation: "",
-    installed: "dep installed <args>",
-    search: "dep search <args>",
-    install: "dep require <args>",
-    uninstall: "dep remove <args>",
+    installed: "dep installed",
+    search: "dep search",
+    install: "go install",
+    uninstall: "dep remove",
     help: "dep <args>",
     version: "dep version",
     init: () => {
@@ -47,7 +47,7 @@ languageConfig.languagePackageManagers = {
     },
     // if command not found in specification
     // run directly on package manager
-    else: "dep <default> <args>",
+    else: "go",
   },
 };
 

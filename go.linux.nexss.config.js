@@ -22,6 +22,11 @@ languageConfig.dist = distName;
 
 // TODO: Later to cleanup this config file !!
 switch (distName) {
+  case "Oracle Linux Server":
+    languageConfig.compilers.go.install = replaceCommandByDist(
+      `${sudo}yum install -y oracle-golang-release-el7 golang`
+    );
+    break;
   case "Alpine Linux":
     languageConfig.compilers.go.install = `${sudo}apk add --update -y --no-cache git make musl-dev go curl`;
     break;
