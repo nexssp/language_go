@@ -1,8 +1,6 @@
 let languageConfig = Object.assign({}, require("./go.win32.nexss.config"));
-let sudo = "sudo ";
-if (process.getuid && process.getuid() === 0) {
-  sudo = "";
-}
+const sudo = process.sudo;
+
 languageConfig.compilers = {
   go: {
     install: `${sudo}apt install golang`,
@@ -12,29 +10,24 @@ languageConfig.compilers = {
   },
 };
 
-const {
-  replaceCommandByDist,
-  dist,
-} = require(`${process.env.NEXSS_SRC_PATH}/lib/osys`);
-
-const distName = dist();
+const distName = process.distro;
 languageConfig.dist = distName;
 
 // TODO: Later to cleanup this config file !!
 switch (distName) {
-  case "Oracle Linux Server":
-    languageConfig.compilers.go.install = replaceCommandByDist(
+  case process.distros.ORACLE:
+    languageConfig.compilers.go.install = process.replacePMByDistro(
       `${sudo}yum install -y oracle-golang-release-el7 golang`
     );
     break;
-  case "Alpine Linux":
+  case process.distros.ALPINE:
     languageConfig.compilers.go.install = `${sudo}apk add --update -y --no-cache git make musl-dev go curl`;
     break;
-  case "Arch Linux":
+  case process.distros.ARCH:
     languageConfig.compilers.go.install = `${sudo}pacman -Sy --noconfirm go`;
     break;
   default:
-    languageConfig.compilers.go.install = replaceCommandByDist(
+    languageConfig.compilers.go.install = process.replacePMByDistro(
       languageConfig.compilers.go.install
     );
     break;
