@@ -24,15 +24,15 @@ languageConfig.compilers = {
 };
 languageConfig.errors = require("./nexss.go.errors");
 languageConfig.languagePackageManagers = {
-  npm: {
-    installation: "scoop install go",
+  dep: {
+    installation: "scoop install go dep",
     messageAfterInstallation: "",
     installed: "dep installed",
     search: "dep search",
     install: "go install",
     uninstall: "dep remove",
     help: "dep <args>",
-    version: "dep version",
+    version: "go --version",
     init: () => {
       if (
         !require("fs").existsSync(

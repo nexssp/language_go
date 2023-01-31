@@ -1,5 +1,5 @@
-//  Nexss PROGRAMMER 2.0.0 - Auto Hot Key
-// Default template for JSON Data
+// Nexss PROGRAMMER 2.x - GoLang
+// Hello World template for JSON Data
 
 package main
 
