@@ -1,4 +1,4 @@
 module.exports = {
-  'cannot find package "(.*?)"':
-    "nexss install go <module> OR\n go install <module>"
+  '\:(?<line>.*?):(?<column>.*?)\: syntax error\: unexpected newline in argument list\; possibly missing comma or':
+    "You may missed a comma at the end of the line: <line> or remove next line to have ) at the end." // Testing error messages in go.
 };
